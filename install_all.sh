@@ -16,8 +16,8 @@ echo
 set -e
 set -x
 
-if [[ $(arch) != 'x86_64' ]]; then
-    echo "x86_64 required" >&2
+if [[ $(arch) != 'x86_64' && $(arch) != 'ppc64le' ]]; then
+    echo "x86_64 or ppc64le required" >&2
     exit 1
 fi
 

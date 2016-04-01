@@ -65,6 +65,8 @@ public:
       while (m_counts[i].load()) {
 #ifdef __x86_64__
         asm("pause");
+#elif defined __powerpc__
+	asm("or 27, 27, 27");
 #else
 #error "Use your the thread relaxation primitive for your architecture."
 #endif
